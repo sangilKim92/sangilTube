@@ -37,11 +37,12 @@ const route={
     edit_profile : EDIT_PROFILE,
     change_password : CHANGE_PASSWORD,
     video : VIDEO,
-    video_detail: (id)=>{
+    video_detail: id =>{
         if(id){
             return `/video/${id}`;
         }else{
-            return VIDEO_DETAIL;
+            console.log("여기??");
+            return HOME;
         }
     },
     edit_video: EDIT_VIDEO,

@@ -15,6 +15,7 @@ const app= express();
 app.use(morgan('tiny')); //여기다가 middleware를 두면 아래 모든 route에 middleware 가 실행된다. morgan이 다 기록한다.
 app.set("view engine", "pug");
 app.use(helmet());//helmet은 보안을 위해서 두는 습관
+app.use("/uploads",express.static("uploads"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cookieParser());

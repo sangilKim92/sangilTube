@@ -63,8 +63,20 @@ export const video = (req, res) =>{
     res.render("video");
 }
 
-export const video_detail = (req, res) =>{
-    res.render("video_detail");
+export const video_detail =async (req, res) =>{
+    const{
+        params:{
+            id
+        }
+    }=req;
+    console.log(id);
+    try{
+        const video = await Video.findById(id); //비디오 모델에서 id가 맞는 것을 const video 객체에 넣는다.
+        res.render("video_detail",{video});
+    }catch(error){
+        res.redirect(route.home);
+    }
+
  }
  
 export const edit_video = (req, res) =>{
@@ -78,11 +90,18 @@ export const getUpload = (req, res) =>{
 
 export const postUpload = async (req, res) => {
   const {
-    body
+    body:{ description, title},
+   
+    file:{path}
+   
   }=req;
-  console.log(body);
- 
-  res.render("upload");
+   const newVideo = await Video.create({
+       fileUrl:path,
+       title,
+       description
+   })
+  
+  res.redirect(route.video_detail(newVideo.id));
 };
 
 export const delete_video = (req, res) =>{

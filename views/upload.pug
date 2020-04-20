@@ -4,7 +4,7 @@ block content
     .form-container
         .record-container#jsRecordContainer
 
-        form(action=`/video${route.upload}`, method="post")
+        form(action=`/video${route.upload}`, method="post" ,enctype="multipart/form-data")
             input(type="file", id="file", name="videoFile", required=true, accept="video/*")
             input(type="text", placeholder="Title", name="title", required=true)
             textarea(name="description", placeholder="Description", required=true)
