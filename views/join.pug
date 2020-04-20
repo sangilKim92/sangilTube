@@ -1,0 +1,12 @@
+extends layouts/main.pug 
+
+block content
+    .form_container
+        form(action = "/join", method="post")
+            input(type="text", placeholder="name", name="name" ,required=true)
+            input(type="email", placeholder="email", name="email" ,required=true)
+            input(type="password", placeholder="password", name="pwd" ,required=true)
+            input(type="password", placeholder="verifyed password", name="pwd2" ,required=true)
+            input(type="submit", value="log in")
+        include ./partials/socialLogin
+

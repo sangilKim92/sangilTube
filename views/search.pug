@@ -1,0 +1,14 @@
+extends layouts/main.pug 
+include mixins/videoBlock
+
+block content
+    p you are searching: #{searching}
+    
+    .search_video
+         each item in video
+            +videoBlock({
+                title:item.title,
+                view: item.view,
+                videoFile : item.videoFild
+            })
+

@@ -1,0 +1,24 @@
+header.header
+    .header_column
+        <i class="fab fa-angellist"></i>
+
+    .header_column
+        form(action=route.search, methods= "get")
+            input(type="text", placeholder="searching" ,name = "term")
+
+    .header_column
+        ul  
+            if !user.isAuthenticated
+                li
+                    a(href=route.join) Join
+                li  
+                    a(href=route.login) Login
+            else
+                li
+                    a(href=`/video/upload`) upload
+                li
+                    a(href=route.user_detail(user.id)) profile
+                li
+                    a(href=route.brodcasting) brodcasting
+                li 
+                    a(href= route.logout) logout

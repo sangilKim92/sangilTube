@@ -1,0 +1,8 @@
+extends layouts/main.pug 
+
+block content
+    .form_container
+        form(action = "/login", method="post")
+            input(type="email", placeholder="email", name="email", required=true)
+            input(type="password", placeholder="password", name="psw", required=true)
+            input(type="submit", value="log in")
